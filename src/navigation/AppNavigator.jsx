@@ -4,12 +4,22 @@ import LoginScreen from "../screens/LoginScreen/LoginScreen";
 import RegisterScreen from "../screens/RegisterScreen/Register";
 import HomeScreen from "../screens/HomeScreen/HomeScreen";
 import SplashScreen from "../screens/SplashScreen/SplashScreen";
+import { Provider } from "react-native-paper";
+import { CombinedDarkTheme, CombinedLightTheme, NavigationDarkTheme, NavigationLightTheme } from "../config/theme";
+import { useTheme } from "../contexts/ThemeContext";
+import SettingsScreen from "../screens/settingScreen/settingsScreen";
 
 const Stack = createStackNavigator();
 
 export default function AppNavigator() {
+
+  const {isDarkTheme} = useTheme();
+  const theme = isDarkTheme ? CombinedDarkTheme : CombinedLightTheme
+  const themeNavigation = isDarkTheme ? NavigationDarkTheme : NavigationLightTheme;
+
   return (
-    <NavigationContainer>
+    <Provider theme={theme}>
+    <NavigationContainer theme={themeNavigation}>
       <Stack.Navigator>
         <Stack.Screen
           name="Splash"
@@ -39,8 +49,15 @@ export default function AppNavigator() {
             headerShown: false,
           }}
         />
-        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen
+          name="SettingsScreen"
+          component={SettingsScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
+    </Provider>
   );
 }

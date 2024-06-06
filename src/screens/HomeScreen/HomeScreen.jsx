@@ -1,9 +1,7 @@
-
-import SettingsScreen from "../settingScreen/settingsScreen";
+import Home from "./screens/Home";
 
 export default function HomeScreen({navigation}) {
     return(
-           
-            <SettingsScreen />
+           <Home /> 
     )
 }

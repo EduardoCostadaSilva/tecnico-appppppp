@@ -2,13 +2,12 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { ScrollView, TextInput } from "react-native-gesture-handler";
 import { Feather } from "@expo/vector-icons";
-import { useNavigation } from "@react-navigation/native";
 import New from "../components/New";
 import House from "../components/House";
 import Recommended from "../components/Recommended";
 
-export default function Home() {
-  const navigation = useNavigation();
+export default function Home({navigation}) {
+  
   return (
     <ScrollView
       showsVerticalScrollIndicator={false}
@@ -23,12 +22,13 @@ export default function Home() {
           />
         </View>
       </View>
+
       <View style={styles.contentNew}>
         <Text style={styles.title}>Novidades</Text>
       </View>
       <ScrollView
         horizontal
-        showsHorizontalScrollIndicator={false}
+        showsHorizontalScrollIndicator={true}
         style={{ paddingHorizontal: 15 }}
       >
         <New
@@ -57,7 +57,7 @@ export default function Home() {
       </View>
       <ScrollView
         horizontal
-        showsHorizontalScrollIndicator={false}
+        showsHorizontalScrollIndicator={true}
         style={{ paddingHorizontal: 15 }}
       >
         <House cover={require("../assets/house4.jpg")} />
@@ -67,7 +67,7 @@ export default function Home() {
       <Text style={[styles.title, { marginTop: 20 }]}>Dica do dia</Text>
       <ScrollView
         horizontal
-        showsHorizontalScrollIndicator={false}
+        showsHorizontalScrollIndicator={true}
         style={{ paddingHorizontal: 15 }}
       >
         <Recommended

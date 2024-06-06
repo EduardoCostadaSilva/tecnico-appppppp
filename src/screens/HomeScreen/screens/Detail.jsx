@@ -1,11 +1,11 @@
 import React from "react";
-import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
+import { View, Text, Image,StyleSheet } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { ScrollView } from "react-native-gesture-handler";
 import Stars from "react-native-stars";
 import SwiperComponent from "../components/Swiper";
 
-export default function Detail() {
+export default function Detail({navigation}) {
   return (
     <View style={styles.container}>
       <View style={styles.swiperContent}>

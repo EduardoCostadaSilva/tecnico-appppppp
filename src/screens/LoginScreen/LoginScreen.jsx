@@ -24,7 +24,6 @@ export default function LoginScreen({ navigation }) {
     <Surface style={styles.container}>
       <View style={styles.container_inner}>
         <Icon source="account" size={100} />
-        <Text>Vamos fazer Login</Text>
         <TextInput
           label={"Digite seu e-mail"}
           value={email}
@@ -36,14 +35,15 @@ export default function LoginScreen({ navigation }) {
           onChangeText={setSenha}
           secureTextEntry
         />
-        <Button onPress={handleLogin}>Fazer login</Button>
-        <Button onPress={() => navigation.navigate("RegisterScreen")}>
-          Fazer cadastro
+        <Button onPress={handleLogin} mode="contained">Fazer login</Button>
+        <Button onPress={() => navigation.navigate("RegisterScreen")} mode="outlined">
+          Fazer cadastro               
         </Button>
-        <Button onPress={() => navigation.navigate("SettingsScreen")}>
+        <Button onPress={() => navigation.navigate("SettingsScreen")} >
           Configurações
         </Button>
       </View>
     </Surface>
   );
 }
+
